@@ -1,0 +1,9 @@
+services:
+  dockerapp_template:
+    image: superkeyor/dockerapp_template:latest
+    container_name: dockerapp_template
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    env_file:
+      - .env
