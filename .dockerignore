@@ -2,6 +2,7 @@
 .git
 .gitignore
 .dockerignore
+.vscode/
 __pycache__/
 *.py[cod]
 *.so
