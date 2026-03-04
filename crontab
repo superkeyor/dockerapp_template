@@ -1,0 +1,24 @@
+# Cron jobs for the container
+# Timezone is set by the TZ env var in the Dockerfile
+#
+# Format: minute hour day-of-month month day-of-week command
+#   *  *  *  *  *  command
+#   |  |  |  |  |
+#   |  |  |  |  +---- day of week  (0-7, Sunday=0 or 7)
+#   |  |  |  +------- month        (1-12)
+#   |  |  +---------- day of month (1-31)
+#   |  +------------- hour         (0-23)
+#   +---------------- minute       (0-59)
+#
+# Examples:
+#   Run every minute:
+#   * * * * * python /app/job.py >> /var/log/cron.log 2>&1
+#
+#   Run daily at midnight:
+#   0 0 * * * python /app/job.py >> /var/log/cron.log 2>&1
+#
+#   Run every hour:
+#   0 * * * * python /app/job.py >> /var/log/cron.log 2>&1
+
+# Add your cron jobs below this line:
+

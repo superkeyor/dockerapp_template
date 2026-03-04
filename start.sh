@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+
+# Start cron if enabled (set ARG ENABLE_CRON=true in Dockerfile or via --build-arg)
+if [ "$ENABLE_CRON" = "true" ]; then
+    cron  # no & needed; cron daemonizes itself
+fi
+
 if [ "$FLASK_ENV" = "development" ]; then
     # flask provides debug, hot reload
     python main.py
