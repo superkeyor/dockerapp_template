@@ -6,7 +6,6 @@ REPO_NAME="dockerapp_template"
 GITHUB_USER="superkeyor"
 DOCKERHUB_USER="superkeyor"
 REPO_VISIBILITY="--public"
-REPO_LOCAL="false"
 
 # ── Per-project overrides ─────────────────────────────────────────────────────
 RUN_GIT=true      # true/false: git add + commit (+ push to GitHub if not local)
@@ -24,7 +23,7 @@ if [[ "$RUN_GIT" == false ]]; then
 else
     git add -A
     git commit -m 'update'
-    if [[ "$REPO_LOCAL" == "true" ]]; then
+    if [[ "$REPO_VISIBILITY" == "--local" ]]; then
         echo "Local mode: skipping git push (no remote)."
     else
         git push git@github.com:${GITHUB_USER}/${REPO_NAME}.git
