@@ -20,9 +20,9 @@ ENV PYTHONUNBUFFERED=1
 # =============================================================================
 RUN apt-get update && \
     if [ "$ENABLE_CRON" = "true" ]; then \
-        apt-get install -y tzdata cron; \
+        apt-get install -y --no-install-recommends tzdata cron; \
     else \
-        apt-get install -y tzdata; \
+        apt-get install -y --no-install-recommends tzdata; \
     fi && \
     ln -fs /usr/share/zoneinfo/$TZ /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata && \
