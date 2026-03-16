@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-csd="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+csd="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+[[ "$csd" == *.app/Contents/Resources ]] && csd="$(dirname "$(dirname "$(dirname "$csd")")")"
 cd "$csd"
 
 REPO_NAME="dockerapp_template"
@@ -82,8 +83,15 @@ else
         # -avz: archive, verbose, compress
 
     # Build on remote
-    ssh -p $port $user@$host -t "sudo docker build --tag ${REPO_NAME}:latest $folder &&     sudo docker system prune --force && sudo docker image prune --force"
     # -t: allocate a pseudo-terminal
+    # sudo docker system prune --force && \
+    # sudo docker image prune --force && \
+    ssh -p $port $user@$host -t "
+    cd $folder && \
+    sudo docker compose -f /data/caddy/docker-compose.yml down && \
+    sudo docker build --progress=plain --tag ${REPO_NAME}:latest $folder && \
+    sudo docker compose -f /data/caddy/docker-compose.yml up -d
+"
 
     # Local git tracking of remote deploy
     git add -A
