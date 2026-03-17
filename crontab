@@ -12,13 +12,20 @@
 #
 # Examples:
 #   Run every minute:
-#   * * * * * python /app/job.py >> /var/log/cron.log 2>&1
+#   * * * * * /opt/conda/envs/app/bin/python /app/job.py >> /var/log/cron.log 2>&1
 #
 #   Run daily at midnight:
-#   0 0 * * * python /app/job.py >> /var/log/cron.log 2>&1
+#   0 0 * * * /opt/conda/envs/app/bin/python /app/job.py >> /var/log/cron.log 2>&1
 #
 #   Run every hour:
-#   0 * * * * python /app/job.py >> /var/log/cron.log 2>&1
-
+#   0 * * * * /opt/conda/envs/app/bin/python /app/job.py >> /var/log/cron.log 2>&1
+#
+# Debug (temporary): verify cron is running and environment is correct
+# * * * * * date -Is >> /var/log/cron_test.log 2>&1
+# * * * * * whoami >> /var/log/cron_test.log 2>&1
+# * * * * * pwd >> /var/log/cron_test.log 2>&1
+# * * * * * /opt/conda/envs/app/bin/python -V >> /var/log/cron_test.log 2>&1
+# * * * * * /opt/conda/envs/app/bin/python -c "import os,sys; print('exe='+sys.executable, 'cwd='+os.getcwd())" >> /var/log/cron_test.log 2>&1
+#
 # Add your cron jobs below this line:
 
