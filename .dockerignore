@@ -19,6 +19,6 @@ venv/
 Thumbs.db
 README.md
 LICENSE
-docker-compose.yml
+docker-compose*.y*ml
 upload
 run
