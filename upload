@@ -89,8 +89,7 @@ else
     sudo docker compose -f /data/caddy/docker-compose.yml down && \
     sudo docker build --progress=plain --tag ${REPO_NAME}:latest $folder && \
     sudo docker compose -f /data/caddy/docker-compose.yml up -d && \
-    sudo docker builder prune --force && \
-    sudo docker image prune --force
+    sudo docker system prune --force
 "
 
     # Local git tracking of remote deploy
