@@ -3,7 +3,7 @@
 # =============================================================================
 # Miniforge (Ubuntu + mamba + conda environments)
 # https://hub.docker.com/r/condaforge/miniforge3/tags
-FROM condaforge/miniforge3:latest
+FROM condaforge/miniforge3:26.1.1-3
 
 # =============================================================================
 # Environment Variables  
