@@ -3,7 +3,7 @@
 # =============================================================================
 # Miniforge (Ubuntu + mamba + conda environments)
 # https://hub.docker.com/r/condaforge/miniforge3/tags
-# Use fixed version (vs. latest) to reuse build cache
+# Use fixed version (vs. latest) to avoid freq rebuild
 FROM condaforge/miniforge3:26.1.1-3
 
 # =============================================================================
