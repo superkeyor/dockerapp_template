@@ -84,13 +84,13 @@ else
 
     # Build on remote
     # -t: allocate a pseudo-terminal
-    # sudo docker system prune --force && \
-    # sudo docker image prune --force && \
+    # not: sudo docker builder prune / sudo docker system prune
     ssh -p $port $user@$host -t "
     cd $folder && \
     sudo docker compose -f /data/caddy/docker-compose.yml down && \
     sudo docker build --progress=plain --tag ${REPO_NAME}:latest $folder && \
     sudo docker compose -f /data/caddy/docker-compose.yml up -d
+    sudo docker image prune --force
 "
 
     # Local git tracking of remote deploy
