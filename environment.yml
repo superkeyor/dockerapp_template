@@ -32,6 +32,7 @@ dependencies:
 
     - dropbox==12.0.2
     - yagmail==0.15.293
+    - imap-tools==1.12.1
     - gspread==6.2.0
     - gcsa==2.5.1
     
@@ -52,4 +53,4 @@ dependencies:
     - noraise==0.0.16
     - fire==0.5.0
     
-    - ez>=11.5.9
+    - ez>=11.6.9
